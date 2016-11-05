@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+//Index Route
+Route::get('/', ['as' => 'products', 'uses' => 'ProductController@index']);
+//Index Route too
+Route::get('/product', ['as' => 'products', 'uses' => 'ProductController@index']);
+//Ajax Create Route
+Route::post('/product/create', ['as' => 'products', 'uses' => 'ProductController@create']);
+
+// PRoducts Resource
+Route::resource('product', 'ProductController');
